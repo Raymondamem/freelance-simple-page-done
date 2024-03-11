@@ -1,0 +1,488 @@
+@import url("assets/media/Pixeboy.ttf");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins, sans-serif;
+  color: white;
+  transition: all 400ms ease;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+html {
+  counter-reset: section;
+}
+
+body {
+  background-color: black;
+  position: relative;
+}
+body::before, body::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 20rem;
+  background: url("../media/top-light.png") no-repeat center/cover;
+  z-index: 2;
+  pointer-events: none !important;
+}
+body::after {
+  height: 70rem;
+  top: auto;
+  bottom: 0 !important;
+  background: url("../media/footer-deep-waves.png") no-repeat center/cover;
+}
+
+.nav,
+.mobileToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 70%;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: fixed;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 0 0.1px white;
+  z-index: 10;
+}
+.nav a,
+.mobileToggle a {
+  text-decoration: none;
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.5rem 0;
+}
+.nav a:hover:not(.logo),
+.mobileToggle a:hover:not(.logo) {
+  font-weight: 600;
+  opacity: 0.4;
+}
+.nav > nav,
+.mobileToggle > nav {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  justify-content: inherit;
+  align-items: inherit;
+}
+.nav > nav a,
+.mobileToggle > nav a {
+  margin-right: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .nav > nav,
+  .mobileToggle > nav {
+    display: none;
+  }
+}
+.nav button,
+.mobileToggle button {
+  padding: 1rem 0.5rem;
+  border: 1px solid transparent;
+  background: white;
+  color: black;
+  border-radius: 25px;
+}
+.nav button:hover,
+.mobileToggle button:hover {
+  background: rgb(20, 20, 20);
+  border-color: white;
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  .nav,
+  .mobileToggle {
+    width: 95%;
+  }
+  .nav button,
+  .mobileToggle button {
+    font-weight: 600;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+  }
+}
+
+main {
+  padding-top: 12rem;
+  z-index: 15 !important;
+  padding-bottom: 10rem;
+}
+main .smallBanner {
+  padding: 1rem;
+  box-shadow: 0 0 0 0.1px white;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  background-color: black;
+}
+main .smallBanner > * {
+  margin: 0.5rem 0;
+  text-decoration: none;
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 600;
+}
+main .smallBanner h3 {
+  margin: 0.9rem 0;
+}
+main .smallBanner p {
+  font-size: 5rem;
+  font-weight: lighter;
+  color: darkslateblue;
+}
+main .smallBanner a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.3rem;
+}
+main .smallBanner a > * {
+  display: block;
+}
+main .smallBanner + .smallBanner {
+  background-image: linear-gradient(96.08deg, rgb(100, 89, 227) 50.06%, rgb(186, 167, 237) 88.46%);
+  padding: 1rem;
+  position: relative;
+}
+main .smallBanner + .smallBanner > img {
+  position: absolute;
+  width: 8rem !important;
+  top: 45%;
+  right: 5%;
+  transform: translateY(-50%);
+}
+main .smallBanner + .smallBanner > *:not(a) {
+  width: 60%;
+}
+main .smallBanner + .smallBanner > p {
+  font-size: 1rem;
+  color: white;
+  line-height: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  main .smallBanner + .smallBanner > p {
+    width: 100%;
+  }
+  main .smallBanner + .smallBanner > img {
+    display: none;
+  }
+}
+main .hintIntro {
+  margin-top: 4rem;
+  padding: 0 1.5rem;
+  margin-bottom: 5rem;
+}
+main .hintIntro > * {
+  margin-bottom: 0.5rem;
+}
+main .table {
+  width: calc(100% - 3rem);
+  margin: auto;
+}
+main .table_head, main .table_body > .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .table_head > h5, main .table_head > div, main .table_body > .item > h5, main .table_body > .item > div {
+  border: none;
+  padding: 0.5rem 0;
+}
+main .table_head > h5:first-child, main .table_head > div:first-child, main .table_body > .item > h5:first-child, main .table_body > .item > div:first-child {
+  width: 50%;
+}
+main .table_head > h5:first-child + h5, main .table_head > h5:first-child + div, main .table_head > div:first-child + h5, main .table_head > div:first-child + div, main .table_body > .item > h5:first-child + h5, main .table_body > .item > h5:first-child + div, main .table_body > .item > div:first-child + h5, main .table_body > .item > div:first-child + div {
+  width: 25%;
+}
+main .table_head > h5:first-child + h5 + h5, main .table_head > h5:first-child + h5 + div, main .table_head > h5:first-child + div + h5, main .table_head > h5:first-child + div + div, main .table_head > div:first-child + h5 + h5, main .table_head > div:first-child + h5 + div, main .table_head > div:first-child + div + h5, main .table_head > div:first-child + div + div, main .table_body > .item > h5:first-child + h5 + h5, main .table_body > .item > h5:first-child + h5 + div, main .table_body > .item > h5:first-child + div + h5, main .table_body > .item > h5:first-child + div + div, main .table_body > .item > div:first-child + h5 + h5, main .table_body > .item > div:first-child + h5 + div, main .table_body > .item > div:first-child + div + h5, main .table_body > .item > div:first-child + div + div {
+  width: 25%;
+}
+@media screen and (max-width: 768px) {
+  main .table_head, main .table_body > .item {
+    flex-direction: column !important;
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) !important;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 25px;
+    border: none;
+    position: relative;
+  }
+  main .table_head > *, main .table_body > .item > * {
+    margin: 0.5rem 0;
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+  main .table_head > *:last-child button, main .table_body > .item > *:last-child button {
+    margin: 0 auto 0 0 !important;
+  }
+}
+main .table_head {
+  position: relative;
+  margin-bottom: 1rem;
+}
+main .table_head::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 0 0 0.1px white;
+}
+@media screen and (max-width: 768px) {
+  main .table_head {
+    display: none;
+  }
+}
+main .table_head > h5 {
+  font-size: 1.2rem;
+  color: gray;
+}
+main .table_head > h5:last-child {
+  text-align: right;
+}
+main .table_body .item > div {
+  color: white !important;
+}
+main .table_body .item > div > * {
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 1rem;
+}
+main .table_body .item > div:first-child p {
+  margin-bottom: 0.5rem;
+}
+main .table_body .item > div:first-child p:last-child {
+  font-size: 0.8rem;
+  color: gray !important;
+}
+main .table_body .item > div:last-child .tblBtn {
+  margin-left: auto;
+  margin-right: 0;
+  border: none;
+  border-radius: 25px;
+  padding: 1rem 3rem;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  background-image: linear-gradient(209.28deg, rgba(255, 255, 255, 0.504) -21.5%, rgba(255, 255, 255, 0.03) 29.96%) !important;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  border-color: #E2E8F0;
+}
+main .table_body .item > div:last-child .tblBtn:hover {
+  background-image: linear-gradient(209.28deg, rgba(255, 255, 255, 0.28) -21.5%, rgba(255, 255, 255, 0.03) 29.96%) !important;
+}
+@media screen and (max-width: 768px) {
+  main .table {
+    width: 100% !important;
+  }
+}
+
+.mobileToggle {
+  position: fixed;
+  top: auto !important;
+  bottom: 3rem !important;
+  display: none;
+}
+.mobileToggle > a {
+  display: block !important;
+  width: 50%;
+  font-weight: 600;
+  color: white;
+  background: transparent;
+  font-size: 1.2rem;
+  outline: none !important;
+  border: none !important;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+}
+.mobileToggle > a:hover {
+  text-decoration: underline;
+}
+.mobileToggle > a.active {
+  background: black;
+  box-shadow: 0 0 0 0.1px white;
+}
+@media screen and (max-width: 768px) {
+  .mobileToggle {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 9rem;
+  margin-bottom: 10rem;
+}
+.banner h1 {
+  font-size: 5rem;
+  font-weight: lighter;
+  margin-bottom: 1rem;
+}
+.banner h1 + h1 {
+  -webkit-text-fill-color: rgba(0, 0, 0, 0);
+  background: -webkit-linear-gradient(290deg, #6459e3 50.06%, #baa7ed 88.46%);
+  -webkit-background-clip: text;
+}
+.banner a {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.banner a:last-of-type {
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: 0.5px solid white;
+  border-radius: 50px;
+}
+@media screen and (max-width: 768px) {
+  .banner h1 {
+    font-size: 3rem;
+  }
+}
+
+.leaderboardTable {
+  width: 100%;
+  box-shadow: 0 0 0 0.1px white;
+  padding: 2rem;
+  border: none;
+  border-radius: 25px;
+  position: relative;
+}
+.leaderboardTable::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 20rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../media/deep-waves.png) no-repeat center/cover;
+  pointer-events: none !important;
+}
+.leaderboardTable .leadnav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+.leaderboardTable .leadnav > * {
+  display: block;
+  text-decoration: none !important;
+}
+.leaderboardTable .wrapper .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  position: relative;
+}
+.leaderboardTable .wrapper .header > h5 {
+  display: block;
+  width: 25%;
+}
+.leaderboardTable .wrapper .header > h5:nth-child(3), .leaderboardTable .wrapper .header > h5:nth-child(4) {
+  text-align: right;
+}
+@media screen and (max-width: 768px) {
+  .leaderboardTable .wrapper .header > h5 {
+    font-size: 0.9rem !important;
+  }
+}
+.leaderboardTable .wrapper .header::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 0 0 0.1px white;
+}
+.leaderboardTable .wrapper .itemWrapper > .items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  border: none;
+  border-radius: 10px;
+}
+.leaderboardTable .wrapper .itemWrapper > .items:nth-child(odd) {
+  background: rgb(20, 20, 20);
+}
+.leaderboardTable .wrapper .itemWrapper > .items:nth-child(even) {
+  background: transparent;
+}
+.leaderboardTable .wrapper .itemWrapper > .items > * {
+  display: block;
+  width: 25%;
+}
+.leaderboardTable .wrapper .itemWrapper > .items > *:nth-child(3), .leaderboardTable .wrapper .itemWrapper > .items > *:nth-child(4) {
+  text-align: right;
+}
+@media screen and (max-width: 768px) {
+  .leaderboardTable .wrapper .itemWrapper > .items > *:nth-child(3) {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .leaderboardTable .wrapper .itemWrapper > .items > * {
+    width: 33.3333333333%;
+  }
+}
+.counterItem {
+  position: relative;
+}
+.counterItem::before {
+  counter-increment: section;
+  content: counter(section);
+}
+
+.leaderboardpage {
+  padding-top: 10rem;
+}
+.leaderboardpage > h1, .leaderboardpage > p {
+  margin-bottom: 1rem;
+}/*# sourceMappingURL=style.css.map */
